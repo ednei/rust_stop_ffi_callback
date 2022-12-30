@@ -1,0 +1,6 @@
+/home/es/rust_stop_ffi_callback/jigsaw/build/CMakeFiles/jigsaw.dir
+/home/es/rust_stop_ffi_callback/jigsaw/build/CMakeFiles/app.dir
+/home/es/rust_stop_ffi_callback/jigsaw/build/CMakeFiles/rusty_jigsaw.dir
+/home/es/rust_stop_ffi_callback/jigsaw/build/CMakeFiles/capp.dir
+/home/es/rust_stop_ffi_callback/jigsaw/build/CMakeFiles/edit_cache.dir
+/home/es/rust_stop_ffi_callback/jigsaw/build/CMakeFiles/rebuild_cache.dir

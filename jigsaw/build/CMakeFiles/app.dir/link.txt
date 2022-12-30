@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/app.dir/app.cpp.o -o app  libjigsaw.a 

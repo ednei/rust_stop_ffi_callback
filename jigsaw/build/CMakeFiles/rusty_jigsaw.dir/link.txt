@@ -1,2 +1,0 @@
-/usr/bin/ar qc librusty_jigsaw.a CMakeFiles/rusty_jigsaw.dir/home/es/rust_stop_ffi_callback/src/bindings.cpp.o
-/usr/bin/ranlib librusty_jigsaw.a

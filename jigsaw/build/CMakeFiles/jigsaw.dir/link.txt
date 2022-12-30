@@ -1,2 +1,0 @@
-/usr/bin/ar qc libjigsaw.a CMakeFiles/jigsaw.dir/jigsaw.cpp.o
-/usr/bin/ranlib libjigsaw.a

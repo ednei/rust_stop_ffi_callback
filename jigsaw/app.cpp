@@ -6,7 +6,6 @@ using namespace std;
 
 void escape(){
     cout << "Stupid guy on cpp: Well, I just do the stupid thing JigSaw expect me to do!" << endl;
-    throw "panic";
 }
 
 int main()

@@ -23,6 +23,7 @@ void game_run(EscapeCallback escapeCallback)
 
 
 void Jigsaw::i_want_to_play_a_game(){
-     std::thread game(game_run,escapeCallback);  
-     game.join();
+     game_run(escapeCallback);
+     // std::thread game(game_run,escapeCallback);  
+     // game.join();
 }

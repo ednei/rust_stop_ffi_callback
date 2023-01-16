@@ -12,7 +12,7 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use lazy_static::lazy_static;
 
-pub fn task_cancelation_main(){
+pub fn main(){
     runner_main();
 }
 

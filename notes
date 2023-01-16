@@ -1,29 +1,25 @@
-Build jigsaw
-cd build
-cmake ..
-make jigsaw
-make rusty_jigsaw
-make app
-make capp
-
-
 https://dane-bulat.medium.com/cmake-how-to-inspect-and-configure-the-compiler-877e6cb0317f
 https://blog.conan.io/2016/05/10/Programming-C++-with-the-4-Cs-Clang,-CMake,-CLion-and-Conan.html
+
 
 Unwinding
 https://github.com/rust-lang/rust/blob/master/library/std/src/panicking.rs#L740
 https://github.com/rust-lang/rust/blob/master/library/panic_unwind/src/lib.rs
 https://github.com/rust-lang/rust/blob/master/library/panic_unwind/src/gcc.rs
+https://github.com/rust-lang/rust/blob/master/library/unwind/src/libunwind.rs
 
 
 https://github.com/llvm-mirror/libunwind/blob/master/src/UnwindLevel1.c
 
 V8 backtrack
-https://github.com/v8/v8/blob/main/src/builtins/x64/builtins-x64.cc#L4509
+https://github.com/v8/v8/blob/main/src/builtins/x64/builtins-x64.cc#L4507
 https://github.com/v8/v8/blob/main/src/execution/arguments.h#L147
 https://github.com/v8/v8/blob/main/src/runtime/runtime-internal.cc#L324
 https://github.com/v8/v8/blob/main/src/execution/stack-guard.cc#L267
 
+
+What rusty_v8 really does to bing is create a thin C layer to binding Rust to C++. 
+This layer is the rusty_v8 lib : https://github.com/denoland/rusty_v8/blob/main/BUILD.gn
 
 Other ways to binging C++ code:
 https://slint-ui.com/blog/rust-and-cpp.html
@@ -32,10 +28,19 @@ https://doc.rust-lang.org/beta/nomicon/ffi.html
 https://github.com/rust-lang/rust-bindgen
 https://cxx.rs/
 
-What rusty_v8 really does to bing is create a thin C layer to binding Rust to C++. 
-This layer is the rusty_v8 lib : https://github.com/denoland/rusty_v8/blob/main/BUILD.gn
-
 Ideia: use https://cxx.rs/ to create a C++ handler that acutally throw a exception and see if V8 can handle it internally.
 
+Ideia: Save the Worker task Context in ThreadLocal, retrieve it in the handle, create the yield future, an manually poll it
+(poll is a sync, this would work as some sort of await)  
 
- 
+https://fasterthanli.me/articles/pin-and-suffering
+https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep
+
+ não há nada que possa ser feito usando tecnicas normais de cancelamento,
+ porque ela significan.
+
+ callback => 
+    cancel the task
+    yield pro executor .await
+
+

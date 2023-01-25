@@ -4,9 +4,9 @@ https://blog.conan.io/2016/05/10/Programming-C++-with-the-4-Cs-Clang,-CMake,-CLi
 
 Unwinding
 https://github.com/rust-lang/rust/blob/master/library/std/src/panicking.rs#L740
-https://github.com/rust-lang/rust/blob/master/library/panic_unwind/src/lib.rs
-https://github.com/rust-lang/rust/blob/master/library/panic_unwind/src/gcc.rs
-https://github.com/rust-lang/rust/blob/master/library/unwind/src/libunwind.rs
+https://github.com/rust-lang/rust/blob/master/library/panic_unwind/src/lib.rs#L102
+https://github.com/rust-lang/rust/blob/master/library/panic_unwind/src/gcc.rs#L72
+https://github.com/rust-lang/rust/blob/master/library/unwind/src/libunwind.rs#L259
 
 
 https://github.com/llvm-mirror/libunwind/blob/master/src/UnwindLevel1.c
@@ -31,7 +31,7 @@ https://cxx.rs/
 Ideia: use https://cxx.rs/ to create a C++ handler that acutally throw a exception and see if V8 can handle it internally.
 
 Ideia: Save the Worker task Context in ThreadLocal, retrieve it in the handle, create the yield future, an manually poll it
-(poll is a sync, this would work as some sort of await)  
+(poll is a sync call, this would work as some sort of await)  
 
 https://fasterthanli.me/articles/pin-and-suffering
 https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep

@@ -12,10 +12,6 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use lazy_static::lazy_static;
 
-pub fn main(){
-    runner_main();
-}
-
 extern {
 	fn setjmp(env: *mut libc::c_void) -> libc::c_int;
 	fn longjmp(env: *mut libc::c_void, val: libc::c_int);
@@ -23,15 +19,14 @@ extern {
 
 type JmpEnv = [libc::c_int; 27];
 
-
 //thread_local!(static JIGSAW_ESCAPE_RETURN_POINT: RefCell<HashMap<u8, JmpEnv>> = RefCell::new(HashMap::new()));
 
 lazy_static! {
     static ref JIGSAW_ESCAPE_RETURN_POINT: Mutex<RefCell<HashMap<u8, JmpEnv>>> = Mutex::new(RefCell::new(HashMap::new()));
 }
 
-fn runner_main(){
-    println!("runner start");
+
+pub fn main(){
     let basic_rt = runtime::Builder::new_current_thread()
         .enable_time()
         .build()
@@ -51,6 +46,8 @@ fn runner_main(){
 async fn worker_task(){
     println!("worker_task1");
     // Actually the V8 code does something that makes unwind impossible, what is it?? 
+    // Answser: V8 use jumps to change the  stack from Javascript to C
+    // https://github.com/v8/v8/blob/main/src/builtins/x64/builtins-x64.cc#L4507 
     tokio::time::sleep(Duration::from_secs(3)).await;
     
     let mut jigsaw_escape_return_point:JmpEnv  = [0; 27];
@@ -99,6 +96,5 @@ async fn worker_task2(){
             break;
         } 
     }
-    //let runner_thead_handle = thread::spawn(|| runner_main(2,queue_rx2));
 }
 

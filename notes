@@ -42,5 +42,6 @@ https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-dee
  callback => 
     cancel the task
     yield pro executor .await
+    o que significa retornar Poll::Pending or Poll:Ready
 
 

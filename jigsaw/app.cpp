@@ -11,14 +11,6 @@ void escape(){
 int main()
 {
     Jigsaw jigsaw(&escape);
-    try
-    {
-        jigsaw.i_want_to_play_a_game();
-    }
-    catch (char const* msg)
-    {
-        std::cout << "msg: " << msg << '\n';
-    }
-    //jigsaw.i_want_to_play_a_game();
-    //cout << "And I survive" << endl;
+    jigsaw.i_want_to_play_a_game();
+    cout << "Stupid guy on cpp: I win Jigsaw, who is stupid here?" << endl;
 }
